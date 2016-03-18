@@ -3,7 +3,6 @@ import urllib2
 import sys
 
 
-
 def get_rent_data(zipcode, metric):
     '''
     Gets data from
@@ -11,6 +10,8 @@ def get_rent_data(zipcode, metric):
 
     and returns the latest rent per square feet at the
     zip code
+
+    inputs should be strings!
 
     '''
     quandl = 'http://www.quandl.com/api/v3/datasets/ZILL/Z' + zipcode + '_' + metric + '.csv'
