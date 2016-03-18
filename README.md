@@ -17,6 +17,11 @@ Features
 * use of Zillow, Google and some gas prices APIs
 * options of rent or own
 * cost of owning a car or commuting at the current cost of public transportation
+* input address or zipcode or just click on map location
+* size of home / number of b&b
+
+
+
 
 Contribute
 ---------------
