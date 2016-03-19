@@ -19,25 +19,25 @@ def get_rent_data(zipcode, metric):
 
     try:
         response = urllib2.urlopen(quandl)
-        cr = list(csv.reader(response))
-
-        latest_rent = cr[1][1]
-        return latest_rent
 
     except urllib2.HTTPError, e:
-        print 'HTTPError = ' + str(e.code)
         print quandl
         print instructions
+        return 'HTTPError = ' + str(e.code)
     except urllib2.URLError, e:
-        print 'URLError = ' + str(e.reason)
         print quandl
         print instructions
+        return 'URLError = ' + str(e.reason)
     except httplib.HTTPException, e:
-        print 'HTTPException'
         print quandl
         print instructions
+        return 'HTTPException'
+        
+    cr = list(csv.reader(response))
+    latest_rent = cr[1][1]
+    return latest_rent
 
-    return 
+
 
 if __name__=="__main__":
     instructions = '''Usage: file zip metric
