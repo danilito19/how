@@ -35,7 +35,7 @@ def get_rent_data(zipcode, metric):
         
     cr = list(csv.reader(response))
     latest_rent = cr[1][1]
-    return latest_rent
+    return float(latest_rent)
 
 
 
@@ -43,7 +43,7 @@ if __name__=="__main__":
     instructions = '''Usage: file zip metric
 
                 zipcode = '60615'
-                metric = 'RZSF'
+                metric = 'RMP'
                     '''
 
     if(len(sys.argv) != 3):
