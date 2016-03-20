@@ -3,8 +3,9 @@
 ### What is how?
 -------------
 
-how
-a little pet project to calculate if it's more cost effective to live near work or live farther away and commute. 
+**how**
+
+a little Flask pet project to calculate if it's more cost effective to live near work or live farther away and commute. 
 
 Requirements
 -----------
