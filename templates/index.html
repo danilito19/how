@@ -1,16 +1,41 @@
-<div class="search-info">
-   <h3>Home Zipcode</h3>
-  <form method="get" action="/search/">
-    <input type="text" name="home_zip" id="home_zip"/>
-     <h3>Work Zipcode</h3>
-    <input type="text" name="work_zip" id="work_zip"/>
-     <h3>Miles between home and work</h3>
-    <input type="text" name="miles" id="miles"/>
-     <h3>Your car's miles per gallon</h3>
-    <input type="text" name="mpg" id="mpg"/>
-
-<!--     <-fill up near work or home? !> 
- -->    <input type="submit" value="Pick Best!" />
-  </form>
-</div>
-
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+</head>
+<body>
+    <div class="container search-info">
+        <div class="row">
+            <div class="col-2-sm col-2-md"> </div>
+            <div class="col-8-sm col-8-md">
+                <form method="post" action="/search/">
+                    <!-- action is where
+    this will take me after -->
+                    <div class="form-group">
+                        <label>Home Zipcode</label>
+                        <input class="form-control" type="number" name="home_zip" id="home_zip" />
+                    </div>
+                    <div class="form-group">
+                        <label>Work Zipcode</label>
+                        <input class="form-control" type="number" name="work_zip" id="work_zip" />
+                    </div>
+                    <div class="form-group">
+                        <label>Miles between home and work</label>
+                        <input class="form-control" type="number" name="miles" id="miles" />
+                    </div>
+                    <div class="form-group">
+                        <label>Your car's miles per gallon</label>
+                        <input class="form-control" type="number" placeholder="miles per gallon" name="mpg" id="mpg" />
+                    </div>
+                    <!--     <-fill up near work or home? !> 
+ -->
+                    <button type="submit" class="btn btn-default">Pick Best!</button>
+                </form>
+            </div>
+            <div class="col-2-sm col-2-md"> </div>
+        </div>
+    </div>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/bootstrap.js"></script>
+</body>
+</html>
