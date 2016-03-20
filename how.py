@@ -15,8 +15,10 @@ def index():
     #print calc_best(home_rent, work_rent, gas_price, 10, 10)
 
     return render_template('index.html')
+
 def results():
-    pass
+    results = 'RESULTS'
+    return render_template('results.html', {'results': results})
 
 if __name__ == '__main__':
     app.run(debug=True)

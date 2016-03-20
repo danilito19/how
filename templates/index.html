@@ -13,7 +13,7 @@
             <div class="col-sm-3 col-md-3 col-lg-3"></div>
             <div class="col-sm-6 col-md-6 col-lg-6">
                 <div class="row">
-                    <h3>DanasssFoooormm</h3>
+                    <h3>Tell me where you live and where you work </h3>
                 </div>
                 <div class="row">
                     <form method="post" action="/search/">
@@ -40,6 +40,10 @@
             <div class="col-sm-3 col-md-3 col-lg-3"></div>
         </div>
     </div>
+{% if results %}
+        {% block results %}
+        {% endblock %}
+{% endif %}
     <script src="static/js/jquery.js"></script>
     <script src="static/js/bootstrap.js"></script>
 </body>
