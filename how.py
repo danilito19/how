@@ -17,14 +17,14 @@ def index():
 
     return render_template('index.html')
 
-@app.route('/')
+@app.route('/results', methods=['GET', 'POST'])
 def results():
     home = 'at home'
     work = 'near work'
 
     output = '''With your current rent, commute, and gas prices, 
                 we estimate you're better off living''' + home 
-    return render_template('results.html', {'results': output})
+    return render_template('results.html', results=output)
 
 
 

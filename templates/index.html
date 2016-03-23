@@ -16,7 +16,7 @@
                     <h3>Tell me where you live and where you work </h3>
                 </div>
                 <div class="row">
-                    <form id="user-form" method="post">
+                    <form id="user-form" method="post" action="/results">
                         <div class="form-group">
                             <label for="home_zip">Home Zipcode</label>
                             <input class="form-control" type="number" name="home_zip" id="home_zip" />
@@ -51,7 +51,9 @@
             <div class="col-sm-3 col-md-3 col-lg-3"></div>
         </div>
     </div>
-    {% if results %} {% block results %} {% endblock %} {% endif %}
+    {% if results %} 
+    {% block results %}  {% endblock %} 
+    {% endif %}
     <script src="static/js/jquery.js"></script>
     <script src="static/js/bootstrap.js"></script>
 </body>
