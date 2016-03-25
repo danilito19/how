@@ -16,18 +16,20 @@
                     <h3>Tell me where you live and where you work </h3>
                 </div>
                 <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
                     <form id="user-form" method="post" action="/results">
                         <div class="form-group">
                             <label for="home_zip">Home Zipcode</label>
-                            <input class="form-control" type="number" name="home_zip" id="home_zip" />
+                            <input class="form-control" type="text" name="home_zip" id="home_zip" />
                         </div>
                         <div class="form-group">
                             <label for="work_zip">Work Zipcode</label>
-                            <input class="form-control" type="number" name="work_zip" id="work_zip" />
+                            <input class="form-control" type="text" name="work_zip" id="work_zip" />
                         </div>
                         <div class="form-group">
                             <label for="miles">Miles between home and work</label>
                             <input class="form-control" type="number" name="miles" id="miles" />
+                             <small class="text-muted">One-way</small>
                         </div>
                         <div class="form-group">
                             <label for="mpg">Your car's miles per gallon</label>
@@ -47,15 +49,19 @@
                         <button  id="button"  class="btn btn-primary" method="post">submit</button>
                     </form>
                 </div>
+                </div>
                 <div class="row" id="form-output">
                 </div>
             </div>
             <div class="col-sm-3 col-md-3 col-lg-3"></div>
         </div>
     </div>
-    {% if results %} 
-    {% block results %}  {% endblock %} 
+    <div>
+    {% if decision %} 
+{{decision}}
     {% endif %}
+    </div>
+
 
     <script src="static/js/jquery.js"></script>
     <script src="static/js/bootstrap.js"></script>

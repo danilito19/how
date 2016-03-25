@@ -1,19 +1,11 @@
 from flask import Flask, jsonify, render_template, request
 from data import load_gas_data, load_rent_data
-import calc_best
+from calc_best import calc_best
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    #get user input, zips
-    #pass zips into
-    #pick zip for gas depending on which radio dial is selected
-    #check that user provided all information
-    # home_rent = load_rent_data.get_rent_data('60615', 'RMP')
-    # work_rent = load_rent_data.get_rent_data('60601', 'RMP')
-    # gas_price = load_gas_data.get_gas_price('60615')
-    #print calc_best(home_rent, work_rent, gas_price, 10, 10)
 
     return render_template('index.html')
 
@@ -23,15 +15,31 @@ def results():
     work = 'near work'
 
     output = '''With your current rent, commute, and gas prices, 
-                we estimate you're better off living''' + home 
+                we estimate you're better off living'''
 
-    print request.args
-    print 'this is home zip'
-    home_zip = request.args.get('home_zip', 'nothing')
-    print home_zip
+    print 'ARGS', request.args
+    home_zip = str(request.args.get('home_zip'))
+    work_zip = str(request.args.get('work_zip'))
+    miles = int(request.args.get('miles'))
+    mpg = int(request.args.get('mpg'))
+
+    # pick zip for gas depending on which radio dial is selected
+    # check that user provided all information
+    if request.args.get('radio') == 'home':
+        gas_price = load_gas_data.get_gas_price(home_zip)
+    else:
+        gas_price = load_gas_data.get_gas_price(work_zip)
+
+    home_rent = load_rent_data.get_rent_data(home_zip, 'RMP')
+    work_rent = load_rent_data.get_rent_data(work_zip, 'RMP')
+    decision = calc_best(home_rent, work_rent, gas_price, miles, mpg)
 
 
-    return jsonify(request.args)
+    if decision:
+        return render_template('results.html', decision = output + home)
+    else:
+        return render_template('results.html', decision = output + work)
+    #return jsonify(request.args)
 
 
 if __name__ == '__main__':
