@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, jsonify, render_template, request
 from data import load_gas_data, load_rent_data
 import calc_best
 
@@ -17,15 +17,21 @@ def index():
 
     return render_template('index.html')
 
-@app.route('/results', methods=['GET', 'POST'])
+@app.route('/results', methods=['GET'])
 def results():
     home = 'at home'
     work = 'near work'
 
     output = '''With your current rent, commute, and gas prices, 
                 we estimate you're better off living''' + home 
-    return render_template('results.html', results=output)
 
+    print request.args
+    print 'this is home zip'
+    home_zip = request.args.get('home_zip', 'nothing')
+    print home_zip
+
+
+    return jsonify(request.args)
 
 
 if __name__ == '__main__':
