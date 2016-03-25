@@ -13,3 +13,6 @@ $( "form" ).submit(function(e) {
   console.log(dict);
   $.getJSON('/results', dict);
 });
+
+///check if user sends no info
+//send alert
